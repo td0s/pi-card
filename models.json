@@ -41,6 +41,13 @@
       "drawing": "https://pip.raspberrypi.com/documents/RP-008367-DS",
       "sha256": "35f3760a5928a9ff8732f0cf1df6a216b3a66930d56cdf46362091ad47386645",
       "params": "params/zerow.json"
+    },
+    {
+      "id": "pi3b",
+      "model": "Raspberry Pi 3 Model B",
+      "drawing": "https://pip.raspberrypi.com/documents/RP-008335-DS",
+      "sha256": "6f6ecb21b7ba2576c9982d4d555cddb6b697ad2677c250f52bdb57f713d79e7f",
+      "params": "params/pi3b.json"
     }
   ]
 }
