@@ -27,6 +27,13 @@
       "drawing": "https://pip.raspberrypi.com/documents/RP-008330-DS",
       "sha256": "3a57851b81c319005ed04ef3bd303a66857cee65226e54d9f89a73f60d141923",
       "params": "params/pi3aplus.json"
+    },
+    {
+      "id": "pi3bplus",
+      "model": "Raspberry Pi 3 Model B+",
+      "drawing": "https://pip.raspberrypi.com/documents/RP-008337-DS",
+      "sha256": "967b7e123670d7f4ef4bd93b0add8e24e6a54910f3d98a09eab68753c5db1e63",
+      "params": "params/pi3bplus.json"
     }
   ]
 }
