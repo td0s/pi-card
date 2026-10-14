@@ -20,6 +20,13 @@
       "drawing": "https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf",
       "sha256": "a5c88057563016631ebca26666fd672614fc9aaa1c59128a541612c7798e9809",
       "params": "params/pi4b.json"
+    },
+    {
+      "id": "pi3aplus",
+      "model": "Raspberry Pi 3 Model A+",
+      "drawing": "https://pip.raspberrypi.com/documents/RP-008330-DS",
+      "sha256": "3a57851b81c319005ed04ef3bd303a66857cee65226e54d9f89a73f60d141923",
+      "params": "params/pi3aplus.json"
     }
   ]
 }
