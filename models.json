@@ -48,6 +48,13 @@
       "drawing": "https://pip.raspberrypi.com/documents/RP-008335-DS",
       "sha256": "6f6ecb21b7ba2576c9982d4d555cddb6b697ad2677c250f52bdb57f713d79e7f",
       "params": "params/pi3b.json"
+    },
+    {
+      "id": "zero",
+      "model": "Raspberry Pi Zero",
+      "drawing": "https://pip.raspberrypi.com/documents/RP-008365-DS",
+      "sha256": "b9c361883c94ab8074e4adb20701f5e96815d99f705b3b85607b267761e724b9",
+      "params": "params/zero.json"
     }
   ]
 }
