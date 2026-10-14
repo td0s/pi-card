@@ -8,6 +8,13 @@
       "params": "params/pi5.json"
     },
     {
+      "id": "zero2w",
+      "model": "Raspberry Pi Zero 2 W",
+      "drawing": "https://pip.raspberrypi.com/documents/RP-008358-DS",
+      "sha256": "58a9cb559ec2747af2581b0e0a95890fabc3d2c627c8192b7b485f612345692d",
+      "params": "params/zero2w.json"
+    },
+    {
       "id": "pi4b",
       "model": "Raspberry Pi 4 Model B",
       "drawing": "https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf",

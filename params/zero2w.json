@@ -1,0 +1,40 @@
+{
+  "id": "zero2w",
+  "model": "Raspberry Pi Zero 2 W",
+  "coordinates": "mm, board seen from the top as on the drawing. x runs along the long edge from the microSD end; y runs from the near edge (mini HDMI, micro USB), which faces the lid hinge. z is height above the top surface of the PCB.",
+  "source": {
+    "url": "https://pip.raspberrypi.com/documents/RP-008358-DS",
+    "sha256": "58a9cb559ec2747af2581b0e0a95890fabc3d2c627c8192b7b485f612345692d"
+  },
+  "board": {
+    "length": {"value": 65, "source": "drawing: overall 65", "verified": true},
+    "width": {"value": 30, "source": "drawing: overall 30", "verified": true},
+    "thickness": {"value": 1.0, "source": "not on the drawing (top view only); 1.0 mm assumed, measure yours", "verified": false},
+    "corner_radius": {"value": 3.0, "source": "drawing: corner arcs measured from vectors", "verified": true}
+  },
+  "holes": {
+    "diameter": 2.7,
+    "positions": [[3.5, 3.5], [61.5, 3.5], [3.5, 26.5], [61.5, 26.5]],
+    "source": "drawing: 3.5 from the edges, 58 x 23 spacing; 2.7 diameter measured from vectors",
+    "verified": true
+  },
+  "height_above": {"value": 8.5, "source": "not on the drawing; GPIO header (if fitted) about 8.5 mm, the tallest part", "verified": false},
+  "depth_below": {"value": 2.0, "source": "not on the drawing; header pins under the board estimated at 2 mm", "verified": false},
+  "ports": [
+    {"id": "hdmi", "label": "HDMI", "edge": "near", "from": 6.96, "to": 17.83, "z_min": 0, "z_max": 3.5, "overhang": 0.55,
+     "source": "drawing: mini HDMI centre 12.4, outline from vectors. Height not on the drawing; 3.5 mm assumed", "verified": false},
+    {"id": "usb", "label": "USB", "edge": "near", "from": 37.37, "to": 45.43, "z_min": 0, "z_max": 3.0, "overhang": 1.24,
+     "source": "drawing: micro USB centre 41.4, outline from vectors. Height not on the drawing; 3.0 mm assumed", "verified": false},
+    {"id": "power", "label": "POWER", "edge": "near", "from": 49.98, "to": 58.04, "z_min": 0, "z_max": 3.0, "overhang": 1.24,
+     "source": "drawing: micro USB centre 54, outline from vectors. Height not on the drawing; 3.0 mm assumed", "verified": false},
+    {"id": "camera", "label": "CAMERA", "edge": "right", "from": 6.94, "to": 23.06, "z_min": 0, "z_max": 1.5, "overhang": 0,
+     "source": "drawing: camera connector at the board edge, outline from vectors. Height not on the drawing; 1.5 mm assumed. The opening is a slot for the ribbon", "verified": false},
+    {"id": "microsd", "label": "microSD", "edge": "left", "from": 10.9, "to": 22.9, "z_min": 0, "z_max": 1.5, "overhang": 1.5,
+     "protrudes_through": true,
+     "source": "drawing: socket outline on top of the board from vectors. Card height and how far it sticks out are not on the drawing; 1.5 mm assumed for both", "verified": false}
+  ],
+  "notes": [
+    "The far edge (GPIO header) has no ports, so the lid's tuck flap goes inside the far wall.",
+    "The wall height allows for a fitted GPIO header but not a HAT."
+  ]
+}
