@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Raspberry Pi board parameters for make_case.py",
+  "type": "object",
+  "required": ["id", "model", "source", "board", "holes", "height_above", "depth_below", "ports"],
+  "additionalProperties": false,
+  "$defs": {
+    "measure": {
+      "type": "object",
+      "required": ["value", "source", "verified"],
+      "additionalProperties": false,
+      "properties": {
+        "value": {"type": "number"},
+        "source": {"type": "string", "minLength": 1},
+        "verified": {"type": "boolean"}
+      }
+    }
+  },
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+    "model": {"type": "string"},
+    "coordinates": {"type": "string"},
+    "source": {
+      "type": "object",
+      "required": ["url", "sha256"],
+      "properties": {
+        "url": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "board": {
+      "type": "object",
+      "required": ["length", "width", "thickness"],
+      "additionalProperties": false,
+      "properties": {
+        "length": {"$ref": "#/$defs/measure"},
+        "width": {"$ref": "#/$defs/measure"},
+        "thickness": {"$ref": "#/$defs/measure"},
+        "corner_radius": {"$ref": "#/$defs/measure"}
+      }
+    },
+    "holes": {
+      "type": "object",
+      "required": ["diameter", "positions", "source", "verified"],
+      "additionalProperties": false,
+      "properties": {
+        "diameter": {"type": "number", "exclusiveMinimum": 0},
+        "positions": {
+          "type": "array", "minItems": 1,
+          "items": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}
+        },
+        "source": {"type": "string"},
+        "verified": {"type": "boolean"}
+      }
+    },
+    "height_above": {"$ref": "#/$defs/measure"},
+    "depth_below": {"$ref": "#/$defs/measure"},
+    "ports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "edge", "from", "to", "z_min", "z_max", "overhang", "source", "verified"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "label": {"type": "string"},
+          "edge": {"enum": ["near", "far", "left", "right"]},
+          "from": {"type": "number"},
+          "to": {"type": "number"},
+          "z_min": {"type": "number"},
+          "z_max": {"type": "number"},
+          "overhang": {"type": "number", "minimum": 0},
+          "protrudes_through": {"type": "boolean"},
+          "source": {"type": "string"},
+          "verified": {"type": "boolean"}
+        }
+      }
+    },
+    "notes": {"type": "array", "items": {"type": "string"}}
+  }
+}

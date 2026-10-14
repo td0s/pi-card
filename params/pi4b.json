@@ -1,0 +1,47 @@
+{
+  "id": "pi4b",
+  "model": "Raspberry Pi 4 Model B",
+  "coordinates": "mm, board seen from the top. x runs along the long edge from the microSD end; y runs from the near edge (USB-C, HDMI, audio), which faces the lid hinge. z is height above the top surface of the PCB.",
+  "source": {
+    "url": "https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf",
+    "sha256": "a5c88057563016631ebca26666fd672614fc9aaa1c59128a541612c7798e9809"
+  },
+  "board": {
+    "length": {"value": 85, "source": "drawing: overall 85", "verified": true},
+    "width": {"value": 56, "source": "drawing: overall 56", "verified": true},
+    "thickness": {"value": 1.6, "source": "not on the drawing; standard 1.6 mm PCB assumed, measure yours", "verified": false},
+    "corner_radius": {"value": 3.0, "source": "drawing: CORNER RADIUS = 3.0mm", "verified": true}
+  },
+  "holes": {
+    "diameter": 2.7,
+    "positions": [[3.5, 3.5], [61.5, 3.5], [3.5, 52.5], [61.5, 52.5]],
+    "source": "drawing: 3.5 from the edges, 58 x 49 spacing, 2.7 diameter",
+    "verified": true
+  },
+  "height_above": {"value": 16.0, "source": "drawing: USB stacks Z=16.0 (tallest)", "verified": true},
+  "depth_below": {"value": 3.0, "source": "not on the drawing; microSD socket with card and through-hole pins estimated at 3 mm below the PCB", "verified": false},
+  "ports": [
+    {"id": "usbc", "label": "POWER", "edge": "near", "from": 6.88, "to": 15.54, "z_min": 0, "z_max": 3.2, "overhang": 1.26,
+     "source": "drawing: USB-C centre 3.5+7.7 = 11.2, Z=3.2; outline measured from the drawing's vectors", "verified": true},
+    {"id": "hdmi0", "label": "HDMI 0", "edge": "near", "from": 22.4, "to": 29.62, "z_min": 0, "z_max": 3.0, "overhang": 1.45,
+     "source": "drawing: micro HDMI centre 11.2+14.8 = 26.0, Z=3.0; flange outline from vectors", "verified": true},
+    {"id": "hdmi1", "label": "HDMI 1", "edge": "near", "from": 35.92, "to": 43.11, "z_min": 0, "z_max": 3.0, "overhang": 1.45,
+     "source": "drawing: micro HDMI centre 26.0+13.5 = 39.5, Z=3.0; flange outline from vectors", "verified": true},
+    {"id": "audio", "label": "AUDIO", "edge": "near", "from": 51.03, "to": 57.02, "z_min": 0, "z_max": 6.0, "overhang": 2.52,
+     "source": "drawing: 3.5 mm jack, 6 mm barrel centred at 54.0, Z=6.0; outline from vectors", "verified": true},
+    {"id": "usb2", "label": "USB 2", "edge": "right", "from": 2.42, "to": 15.56, "z_min": 0, "z_max": 16.0, "overhang": 3.04,
+     "source": "drawing: USB stack centred at 9, Z=16.0; outline from vectors", "verified": true},
+    {"id": "usb3", "label": "USB 3", "edge": "right", "from": 20.42, "to": 33.56, "z_min": 0, "z_max": 16.0, "overhang": 3.04,
+     "source": "drawing: USB stack centred at 27, Z=16.0; outline from vectors", "verified": true},
+    {"id": "eth", "label": "ETHERNET", "edge": "right", "from": 37.99, "to": 53.51, "z_min": 0, "z_max": 13.5, "overhang": 3.04,
+     "source": "drawing: Ethernet centred at 45.75, Z=13.5; outline from vectors", "verified": true},
+    {"id": "microsd", "label": "microSD", "edge": "left", "from": 22.5, "to": 33.5, "z_min": -3.0, "z_max": -1.6, "overhang": 2.5,
+     "protrudes_through": true,
+     "source": "not on the drawing (underside). 11 mm card assumed centred 28 mm from the near edge, under the PCB, sticking out about 2.5 mm when inserted",
+     "verified": false}
+  ],
+  "notes": [
+    "The far edge (GPIO header) has no ports, so the lid's tuck flap goes inside the far wall.",
+    "Camera and display ribbon connectors are not given openings; route ribbons out under the lid."
+  ]
+}
