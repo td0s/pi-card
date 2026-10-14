@@ -29,9 +29,9 @@
      "source": "drawing: micro USB centre 54, outline from vectors. Height not on the drawing; 3.0 mm assumed", "verified": false},
     {"id": "camera", "label": "CAMERA", "edge": "right", "from": 6.94, "to": 23.06, "z_min": 0, "z_max": 1.5, "overhang": 0,
      "source": "drawing: camera connector at the board edge, outline from vectors. Height not on the drawing; 1.5 mm assumed. The opening is a slot for the ribbon", "verified": false},
-    {"id": "microsd", "label": "microSD", "edge": "left", "from": 10.9, "to": 22.9, "z_min": 0, "z_max": 1.5, "overhang": 1.5,
+    {"id": "microsd", "label": "microSD", "edge": "left", "from": 11.49, "to": 22.49, "z_min": 0, "z_max": 1.5, "overhang": 2.29,
      "protrudes_through": true,
-     "source": "drawing: socket outline on top of the board from vectors. Card height and how far it sticks out are not on the drawing; 1.5 mm assumed for both", "verified": false}
+     "source": "drawing: socket outline on top of the board from vectors, in the same place as the Zero W socket. The Zero W drawing shows the 11 mm card sticking out 2.29 mm; assumed the same here. Card height 1.5 mm assumed", "verified": false}
   ],
   "notes": [
     "The far edge (GPIO header) has no ports, so the lid's tuck flap goes inside the far wall.",

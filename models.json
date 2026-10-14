@@ -34,6 +34,13 @@
       "drawing": "https://pip.raspberrypi.com/documents/RP-008337-DS",
       "sha256": "967b7e123670d7f4ef4bd93b0add8e24e6a54910f3d98a09eab68753c5db1e63",
       "params": "params/pi3bplus.json"
+    },
+    {
+      "id": "zerow",
+      "model": "Raspberry Pi Zero W",
+      "drawing": "https://pip.raspberrypi.com/documents/RP-008367-DS",
+      "sha256": "35f3760a5928a9ff8732f0cf1df6a216b3a66930d56cdf46362091ad47386645",
+      "params": "params/zerow.json"
     }
   ]
 }
