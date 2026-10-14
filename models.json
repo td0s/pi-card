@@ -1,6 +1,13 @@
 {
   "models": [
     {
+      "id": "pi5",
+      "model": "Raspberry Pi 5",
+      "drawing": "https://pip.raspberrypi.com/documents/RP-008347-DS",
+      "sha256": "5dd680d6c1f5e7aa9c7b020695e315d04aac862df82ff01d4e9041cd0668d7f2",
+      "params": "params/pi5.json"
+    },
+    {
       "id": "pi4b",
       "model": "Raspberry Pi 4 Model B",
       "drawing": "https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf",
