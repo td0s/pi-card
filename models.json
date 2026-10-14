@@ -55,6 +55,29 @@
       "drawing": "https://pip.raspberrypi.com/documents/RP-008365-DS",
       "sha256": "b9c361883c94ab8074e4adb20701f5e96815d99f705b3b85607b267761e724b9",
       "params": "params/zero.json"
+    },
+    {
+      "id": "pi2b",
+      "model": "Raspberry Pi 2 Model B",
+      "drawing": "https://pip.raspberrypi.com/documents/RP-008351-DS",
+      "sha256": "42e182e977d1b360092535e9b45ab665b5ff5d1421850848c94ed64a78b65e05",
+      "params": "params/pi2b.json",
+      "note": "No 2B drawing is published; uses the B+ drawing."
+    },
+    {
+      "id": "aplus",
+      "model": "Raspberry Pi 1 Model A+",
+      "drawing": "https://pip.raspberrypi.com/documents/RP-008330-DS",
+      "sha256": "3a57851b81c319005ed04ef3bd303a66857cee65226e54d9f89a73f60d141923",
+      "params": "params/aplus.json",
+      "note": "No A+ drawing is published; the docs say the 3A+ drawing applies."
+    },
+    {
+      "id": "bplus",
+      "model": "Raspberry Pi 1 Model B+",
+      "drawing": "https://pip.raspberrypi.com/documents/RP-008351-DS",
+      "sha256": "42e182e977d1b360092535e9b45ab665b5ff5d1421850848c94ed64a78b65e05",
+      "params": "params/bplus.json"
     }
   ]
 }

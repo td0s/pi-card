@@ -37,6 +37,31 @@ The PDF's page 1 is the 1:1 template, with a 50 mm scale bar to check the print 
 
 ## Boards
 
-| Board | Status |
-| --- | --- |
-| Raspberry Pi 4 Model B | Generated. Not yet test-folded. PCB thickness and the microSD slot are unverified. |
+Newest first. None of these cases has been printed and folded yet.
+
+| Board | Params | Source |
+| --- | --- | --- |
+| Raspberry Pi 5 | `params/pi5.json` | Official drawing, including its side view. Everything is verified. |
+| Raspberry Pi Zero 2 W | `params/zero2w.json` | Positions come from the drawing. Heights, PCB thickness and the microSD card are unverified. |
+| Raspberry Pi 4 Model B | `params/pi4b.json` | Positions and heights come from the drawing. PCB thickness and the microSD slot are unverified. |
+| Raspberry Pi 3 Model A+ | `params/pi3aplus.json` | Positions and heights come from the drawing. Micro USB height, PCB thickness and the microSD slot are unverified. |
+| Raspberry Pi 3 Model B+ | `params/pi3bplus.json` | Same as the 3A+. |
+| Raspberry Pi Zero W | `params/zerow.json` | Positions and the microSD card come from the drawing. Heights and PCB thickness are unverified. |
+| Raspberry Pi 3 Model B | `params/pi3b.json` | Same as the 3B+. |
+| Raspberry Pi Zero | `params/zero.json` | Revision 1.2, with no camera connector. Use the Zero W case for revision 1.3. |
+| Raspberry Pi 2 Model B | `params/pi2b.json` | No drawing is published, so it uses the B+ drawing. Everything is unverified. |
+| Raspberry Pi 1 Model A+ | `params/aplus.json` | No drawing is published, so it uses the 3A+ drawing, as the docs advise. Everything is unverified. |
+| Raspberry Pi 1 Model B+ | `params/bplus.json` | Same as the 3B+. |
+
+Not covered:
+
+- **Original Model A and B (2012–13):** no mechanical drawing is published. The board shape, mounting holes and connectors differ from later boards.
+- **Pi 400, 500 and 500+:** these are keyboard computers.
+- **Compute Modules:** they have no connectors of their own.
+- **Pico:** this is a microcontroller board.
+
+Build every board:
+
+```sh
+for p in params/*.json; do python make_case.py "$p"; done
+```

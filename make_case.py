@@ -736,8 +736,8 @@ def section_drawing(d):
     from reportlab.lib import colors
     p, T = d.params, d.card
     W, H_in, Hw = d.dims["W"], d.dims["H_in"], d.dims["Hw"]
-    s = 1.1  # drawing scale
-    pad = 7
+    s = 0.9  # drawing scale
+    pad = 5
     dr = Drawing((W + 2 * pad + 40) * s * MM, (Hw + 2 * pad) * s * MM)
 
     def X(v):
