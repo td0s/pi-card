@@ -1,0 +1,11 @@
+{
+  "models": [
+    {
+      "id": "pi4b",
+      "model": "Raspberry Pi 4 Model B",
+      "drawing": "https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf",
+      "sha256": "a5c88057563016631ebca26666fd672614fc9aaa1c59128a541612c7798e9809",
+      "params": "params/pi4b.json"
+    }
+  ]
+}
