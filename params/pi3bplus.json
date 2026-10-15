@@ -1,0 +1,45 @@
+{
+  "id": "pi3bplus",
+  "model": "Raspberry Pi 3 Model B+",
+  "coordinates": "mm, board seen from the top as on the drawing. x runs along the long edge from the microSD end; y runs from the near edge (micro USB, HDMI, audio), which faces the lid hinge. z is height above the top surface of the PCB.",
+  "source": {
+    "url": "https://pip.raspberrypi.com/documents/RP-008337-DS",
+    "sha256": "967b7e123670d7f4ef4bd93b0add8e24e6a54910f3d98a09eab68753c5db1e63"
+  },
+  "board": {
+    "length": {"value": 85, "source": "drawing: overall 85", "verified": true},
+    "width": {"value": 56, "source": "drawing: overall 56", "verified": true},
+    "thickness": {"value": 1.6, "source": "not on the drawing; standard 1.6 mm PCB assumed, measure yours", "verified": false},
+    "corner_radius": {"value": 3.0, "source": "drawing: CORNER RADIUS = 3.0mm", "verified": true}
+  },
+  "holes": {
+    "diameter": 2.75,
+    "positions": [[3.5, 3.5], [61.5, 3.5], [3.5, 52.5], [61.5, 52.5]],
+    "source": "drawing: 3.5 from the edges, 58 x 49 spacing, 2.75 diameter",
+    "verified": true
+  },
+  "height_above": {"value": 16.0, "source": "drawing: USB stacks Z-Height=16.0 (tallest)", "verified": true},
+  "depth_below": {"value": 3.0, "source": "not on the drawing; microSD socket with card and through-hole pins estimated at 3 mm below the PCB", "verified": false},
+  "ports": [
+    {"id": "power", "label": "POWER", "edge": "near", "from": 6.6, "to": 14.62, "z_min": 0, "z_max": 3.0, "overhang": 1.22,
+     "source": "drawing: micro USB centre 10.6, outline from vectors. Height not on the drawing; 3.0 mm assumed", "verified": false},
+    {"id": "hdmi", "label": "HDMI", "edge": "near", "from": 24.77, "to": 39.24, "z_min": 0, "z_max": 6.5, "overhang": 1.49,
+     "source": "drawing: HDMI centre 32, Z-Height=6.5; outline from vectors", "verified": true},
+    {"id": "audio", "label": "AUDIO", "edge": "near", "from": 50.5, "to": 56.49, "z_min": 0, "z_max": 6.0, "overhang": 2.52,
+     "source": "drawing: audio jack centre 53.5, Z-Height=6; outline from vectors", "verified": true},
+    {"id": "eth", "label": "ETHERNET", "edge": "right", "from": 2.48, "to": 17.98, "z_min": 0, "z_max": 13.5, "overhang": 1.98,
+     "source": "drawing: Ethernet centre 10.25, Z-Height=13.5; outline from vectors", "verified": true},
+    {"id": "usb-a", "label": "USB", "edge": "right", "from": 21.64, "to": 35.57, "z_min": 0, "z_max": 16.0, "overhang": 1.98,
+     "source": "drawing: USB stack centre 29, Z-Height=16.0; outline from vectors", "verified": true},
+    {"id": "usb-b", "label": "USB", "edge": "right", "from": 39.62, "to": 53.55, "z_min": 0, "z_max": 16.0, "overhang": 1.98,
+     "source": "drawing: USB stack centre 47, Z-Height=16.0; outline from vectors", "verified": true},
+    {"id": "microsd", "label": "microSD", "edge": "left", "from": 22.5, "to": 33.5, "z_min": -3.0, "z_max": -1.6, "overhang": 2.5,
+     "protrudes_through": true,
+     "source": "not on the drawing (underside). 11 mm card assumed centred 28 mm from the near edge, under the PCB, sticking out about 2.5 mm when inserted",
+     "verified": false}
+  ],
+  "notes": [
+    "The far edge (GPIO header) has no ports, so the lid's tuck flap goes inside the far wall.",
+    "Camera and display ribbon connectors are not given openings; route ribbons out under the lid."
+  ]
+}

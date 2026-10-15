@@ -121,13 +121,14 @@ def clearances(p, T, errors):
         others = [q for q in ports if not q.get("protrudes_through")]
         need = max([MIN_CLEARANCE] + [q["overhang"] + 1 for q in others])
         if through:
-            # Let these stick 1 mm out through the wall so they can be gripped.
-            c = min(q["overhang"] - T - 1 for q in through)
-            low = max([0.5] + [q["overhang"] + 1 for q in others])
-            if c < low:
-                errors.append(f"{side} edge: {', '.join(q['id'] for q in through)} "
-                              f"can't protrude through the wall with clearance {c:.2f} mm")
-                c = low
+            # Let these stick about 1 mm out through the wall so they can be
+            # gripped, but keep at least 0.5 mm between the board and the wall.
+            low = max([0.5] + [q["overhang"] + 1 for q in others if q["overhang"] > 0])
+            c = max(low, min(q["overhang"] - T - 1 for q in through))
+            short = [q["id"] for q in through if q["overhang"] - c - T < 0.3]
+            if short:
+                errors.append(f"{side} edge: {', '.join(short)} can't protrude through the wall "
+                              f"with clearance {c:.2f} mm")
             cl[side] = c
         else:
             cl[side] = need
@@ -189,6 +190,7 @@ def design(p, card=0.4, paper="A4", doubler=True):
         d.openings.append(Opening(w.name, q["id"], q["label"], u0, u1, z0, z1,
                                   rect_pts(w, u0, u1, z0, z1),
                                   math.degrees(math.atan2(w.eu[1], w.eu[0]))))
+    d.openings = merge_openings(d.openings, walls)
 
     # Lid on the near wall, tuck flap on the lid
     near = walls["near"]
@@ -239,6 +241,36 @@ def design(p, card=0.4, paper="A4", doubler=True):
         d.notes.append("Doubler: a separate floor-sized piece glued on top of the floor.")
     check(d)
     return d
+
+
+def merge_openings(openings, walls):
+    """Combine openings on the same wall that overlap or nearly touch.
+
+    A sliver of card under 2 mm between two openings won't survive cutting,
+    so such neighbours become one rectangular opening.
+    """
+    merged = list(openings)
+    changed = True
+    while changed:
+        changed = False
+        for i, a in enumerate(merged):
+            for b in merged[i + 1:]:
+                if a.wall != b.wall:
+                    continue
+                gap_u = max(a.u0, b.u0) - min(a.u1, b.u1)
+                gap_z = max(a.z0, b.z0) - min(a.z1, b.z1)
+                if (gap_u < FOLD_MIN and gap_z < 0) or (gap_z < FOLD_MIN and gap_u < 0):
+                    w = walls[a.wall]
+                    u0, u1 = min(a.u0, b.u0), max(a.u1, b.u1)
+                    z0, z1 = min(a.z0, b.z0), max(a.z1, b.z1)
+                    m = Opening(a.wall, f"{a.port}+{b.port}", f"{a.label} / {b.label}",
+                                u0, u1, z0, z1, rect_pts(w, u0, u1, z0, z1), a.angle)
+                    merged = [o for o in merged if o is not a and o is not b] + [m]
+                    changed = True
+                    break
+            if changed:
+                break
+    return merged
 
 
 def make_tab(d, a_name, a_end, b_name, b_end):
@@ -704,8 +736,8 @@ def section_drawing(d):
     from reportlab.lib import colors
     p, T = d.params, d.card
     W, H_in, Hw = d.dims["W"], d.dims["H_in"], d.dims["Hw"]
-    s = 1.1  # drawing scale
-    pad = 7
+    s = 0.9  # drawing scale
+    pad = 5
     dr = Drawing((W + 2 * pad + 40) * s * MM, (Hw + 2 * pad) * s * MM)
 
     def X(v):

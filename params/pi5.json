@@ -1,0 +1,47 @@
+{
+  "id": "pi5",
+  "model": "Raspberry Pi 5",
+  "coordinates": "mm, board seen from the top as on the drawing. x runs along the long edge from the microSD end; y runs from the near edge (USB-C, HDMI), which faces the lid hinge. z is height above the top surface of the PCB.",
+  "source": {
+    "url": "https://pip.raspberrypi.com/documents/RP-008347-DS",
+    "sha256": "5dd680d6c1f5e7aa9c7b020695e315d04aac862df82ff01d4e9041cd0668d7f2"
+  },
+  "board": {
+    "length": {"value": 85, "source": "drawing: overall 85", "verified": true},
+    "width": {"value": 56, "source": "drawing: overall 56", "verified": true},
+    "thickness": {"value": 1.41, "source": "drawing side view, measured from vectors", "verified": true},
+    "corner_radius": {"value": 3.0, "source": "not dimensioned; same 3 mm as earlier boards assumed", "verified": false}
+  },
+  "holes": {
+    "diameter": 2.7,
+    "positions": [[3.5, 3.5], [61.5, 3.5], [3.5, 52.5], [61.5, 52.5]],
+    "source": "drawing: 3.5 from the edges, 58 x 49 spacing, 2.7 diameter",
+    "verified": true
+  },
+  "height_above": {"value": 15.8, "source": "drawing side view: USB stacks 15.8 above the PCB (tallest), measured from vectors", "verified": true},
+  "depth_below": {"value": 1.55, "source": "drawing side view: microSD socket reaches 1.55 below the PCB, measured from vectors", "verified": true},
+  "ports": [
+    {"id": "usbc", "label": "POWER", "edge": "near", "from": 6.85, "to": 15.59, "z_min": 0, "z_max": 3.17, "overhang": 1.3,
+     "source": "drawing: USB-C centre 11.2; outline and height 3.2 from vectors", "verified": true},
+    {"id": "hdmi0", "label": "HDMI 0", "edge": "near", "from": 22.58, "to": 29.07, "z_min": 0, "z_max": 3.39, "overhang": 1.66,
+     "source": "drawing: micro HDMI centre 25.8; outline and height 3.4 from vectors", "verified": true},
+    {"id": "hdmi1", "label": "HDMI 1", "edge": "near", "from": 35.94, "to": 42.47, "z_min": 0, "z_max": 3.39, "overhang": 1.66,
+     "source": "drawing: micro HDMI centre 39.2; outline and height 3.4 from vectors", "verified": true},
+    {"id": "eth", "label": "ETHERNET", "edge": "right", "from": 2.22, "to": 18.2, "z_min": 0, "z_max": 13.9, "overhang": 3.0,
+     "source": "drawing: Ethernet centre 10.2, overhang 3; outline and height 13.9 from vectors", "verified": true},
+    {"id": "usb-a", "label": "USB", "edge": "right", "from": 22.5, "to": 35.59, "z_min": 0, "z_max": 15.8, "overhang": 2.89,
+     "source": "drawing: USB stack centre 29.1; outline and height 15.8 from vectors", "verified": true},
+    {"id": "usb-b", "label": "USB", "edge": "right", "from": 40.45, "to": 53.54, "z_min": 0, "z_max": 15.8, "overhang": 2.89,
+     "source": "drawing: USB stack centre 47; outline and height 15.8 from vectors", "verified": true},
+    {"id": "button", "label": "BUTTON", "edge": "left", "from": 11.71, "to": 20.67, "z_min": 0, "z_max": 2.57, "overhang": 0,
+     "source": "drawing: power button (centre 18.4) and status LED (centre 13.3) at the board edge; outline and heights from vectors", "verified": true},
+    {"id": "microsd", "label": "microSD", "edge": "left", "from": 22.61, "to": 33.61, "z_min": -2.96, "z_max": -1.41, "overhang": 1.69,
+     "protrudes_through": true,
+     "source": "drawing: card outline under the board in the top and side views, measured from vectors", "verified": true}
+  ],
+  "notes": [
+    "The far edge (GPIO header) has no ports, so the lid's tuck flap goes inside the far wall.",
+    "Camera/display and PCIe ribbon connectors are not given openings; route ribbons out under the lid.",
+    "The USB stacks are labelled USB without saying which pair is USB 3."
+  ]
+}

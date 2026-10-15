@@ -32,14 +32,17 @@ def test_openings_match_connectors(params):
     pcb = params["board"]["thickness"]["value"]
     m = mc.PORT_MARGIN
     for q in params["ports"]:
-        o = next(o for o in d.openings if o.port == q["id"])
+        # Merged openings carry every port id they cover
+        o = next(o for o in d.openings if q["id"] in o.port.split("+"))
         offset = d.clearance["left"] if q["edge"] in ("near", "far") else d.clearance["near"]
-        assert o.wall == q["edge"]
-        assert o.u0 == pytest.approx(offset + q["from"] - m)
-        assert o.u1 == pytest.approx(offset + q["to"] + m)
+        u0, u1 = offset + q["from"] - m, offset + q["to"] + m
         # Heights include the floor card, the 5 mm spacer and the PCB
-        assert o.z0 == pytest.approx(d.card + 5 + pcb + q["z_min"] - m)
-        assert o.z1 == pytest.approx(d.card + 5 + pcb + q["z_max"] + m)
+        z0, z1 = d.card + 5 + pcb + q["z_min"] - m, d.card + 5 + pcb + q["z_max"] + m
+        assert o.wall == q["edge"]
+        if o.port == q["id"]:
+            assert (o.u0, o.u1, o.z0, o.z1) == pytest.approx((u0, u1, z0, z1))
+        else:
+            assert o.u0 <= u0 + 1e-9 and u1 <= o.u1 + 1e-9 and o.z0 <= z0 + 1e-9 and z1 <= o.z1 + 1e-9
 
 
 def test_spacer_height_sets_wall_height(params):

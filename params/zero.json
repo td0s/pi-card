@@ -1,0 +1,40 @@
+{
+  "id": "zero",
+  "model": "Raspberry Pi Zero",
+  "coordinates": "mm, board seen from the top as on the drawing. x runs along the long edge from the microSD end; y runs from the near edge (mini HDMI, micro USB), which faces the lid hinge. z is height above the top surface of the PCB.",
+  "source": {
+    "url": "https://pip.raspberrypi.com/documents/RP-008365-DS",
+    "sha256": "b9c361883c94ab8074e4adb20701f5e96815d99f705b3b85607b267761e724b9"
+  },
+  "board": {
+    "length": {"value": 65, "source": "drawing: overall 65", "verified": true},
+    "width": {"value": 30, "source": "drawing: overall 30", "verified": true},
+    "thickness": {"value": 1.0, "source": "not on the drawing (top view only); 1.0 mm assumed, measure yours", "verified": false},
+    "corner_radius": {"value": 3.0, "source": "drawing: CORNER RADIUS 3mm", "verified": true}
+  },
+  "holes": {
+    "diameter": 2.75,
+    "positions": [[3.5, 3.5], [61.5, 3.5], [3.5, 26.5], [61.5, 26.5]],
+    "source": "drawing: 3.5 from the edges, 58 x 23 spacing, M2.5 drilled to 2.75",
+    "verified": true
+  },
+  "height_above": {"value": 8.5, "source": "not on the drawing; GPIO header (if fitted) about 8.5 mm, the tallest part", "verified": false},
+  "depth_below": {"value": 2.0, "source": "not on the drawing; header pins under the board estimated at 2 mm", "verified": false},
+  "ports": [
+    {"id": "hdmi", "label": "HDMI", "edge": "near", "from": 6.97, "to": 17.83, "z_min": 0, "z_max": 3.5, "overhang": 0.54,
+     "source": "drawing: mini HDMI centre 12.4, outline from vectors. Height not on the drawing; 3.5 mm assumed", "verified": false},
+    {"id": "usb", "label": "USB", "edge": "near", "from": 37.38, "to": 45.42, "z_min": 0, "z_max": 3.0, "overhang": 1.21,
+     "source": "drawing: micro USB centre 41.4, outline from vectors. Height not on the drawing; 3.0 mm assumed", "verified": false},
+    {"id": "power", "label": "POWER", "edge": "near", "from": 49.97, "to": 58.01, "z_min": 0, "z_max": 3.0, "overhang": 1.21,
+     "source": "drawing: micro USB centre 54, outline from vectors. Height not on the drawing; 3.0 mm assumed", "verified": false},
+    {"id": "microsd", "label": "microSD", "edge": "left", "from": 11.5, "to": 22.49, "z_min": 0, "z_max": 1.5, "overhang": 2.32,
+     "protrudes_through": true,
+     "source": "drawing: card centre 16.9, sticking out 2.32 mm, outline from vectors. Card height not on the drawing; 1.5 mm assumed", "verified": false}
+  ],
+  "notes": [
+    "The far edge (GPIO header) has no ports, so the lid's tuck flap goes inside the far wall.",
+    "The wall height allows for a fitted GPIO header but not a HAT.",
+    "This drawing is board revision 1.2, which has no camera connector. Revision 1.3 boards added one at the right edge; use the Zero W case for those.",
+    "The Raspberry Pi docs link this drawing as the Zero schematic (RP-008365-DS) and the schematic as the mechanical drawing."
+  ]
+}
